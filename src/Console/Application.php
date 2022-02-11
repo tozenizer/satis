@@ -74,6 +74,7 @@ class Application extends BaseApplication
             new Command\AddCommand(),
             new Command\BuildCommand(),
             new Command\PurgeCommand(),
+            new Command\ScanOrganisationCommand(),
         ]);
 
         return $commands;

@@ -72,7 +72,7 @@ class ArchiveBuilderTest extends TestCase
             $this->returnCallback(
                 function ($package, $source) {
                     $filesystem = new Filesystem();
-                    $filesystem->dumpFile(realpath($source) . '/' . 'README.md', '# The demo archive.');
+                    $filesystem->dumpFile(realpath($source) . '/README.md', '# The demo archive.');
                 }
             )
         );
@@ -82,7 +82,7 @@ class ArchiveBuilderTest extends TestCase
             {
             }
 
-            public function archive(CompletePackageInterface $package, $format, $targetDir, $fileName = null, $ignoreFilters = false)
+            public function archive(CompletePackageInterface $package, string $format, string $targetDir, ?string $fileName = null, bool $ignoreFilters = false): string
             {
                 $target = $targetDir.'/'.$this->getPackageFilename($package).'.'.$format;
                 touch($target);
